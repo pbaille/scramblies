@@ -37,5 +37,5 @@ Please pay attention to tests, code readability and error cases.
 
 **all in one**  
 
-```./build.sh```
+```./build.sh``` and visit ```http://localhost:3000```
 
