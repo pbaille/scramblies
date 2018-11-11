@@ -33,7 +33,7 @@
              :compiler {:main challenge.client.core
                         :asset-path "js/out"
                         :optimizations :advanced
-                        :output-to "resources/public/js/out/main.min.js"
+                        :output-to "resources/public/js/out/main.js"
                         :output-dir "resources/public/js/out"}}]}
 
   :garden

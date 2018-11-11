@@ -26,11 +26,11 @@
         (fn []
           (go (let [response
                     (<! (http/get
-                          "http://localhost:3001/scramble"
+                          (str (.-href js/window.location) "scramble")
                           {:with-credentials? false
                            :query-params {"x" (:str1 @inner-state)
                                           "y" (:str2 @inner-state)}}))]
-                (println response)
+                #_(println response)
                 (swap! inner-state assoc
                        :scrumbled? (:body response)))))]
 

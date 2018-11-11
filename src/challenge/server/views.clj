@@ -7,4 +7,4 @@
      [:title "Flexiana"]
      (include-css "/screen.css")]
     [:div#app]
-    (include-js "/js/out/main.min.js")))
+    (include-js "/js/out/main.js")))
