@@ -27,6 +27,10 @@ Please pay attention to tests, code readability and error cases.
 
 ## Usage
 
+**all in one**  
+
+```./build.sh``` and visit ```http://localhost:3000```
+
 **compiling**  
 
 ```lein build``` 
@@ -35,7 +39,9 @@ Please pay attention to tests, code readability and error cases.
 
 ```java -jar target/challenge-0.1.0-SNAPSHOT-standalone.jar -p 4321```
 
-**all in one**  
+**testing**  
 
-```./build.sh``` and visit ```http://localhost:3000```
+```lein test```
+
+
 
