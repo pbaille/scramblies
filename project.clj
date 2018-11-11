@@ -40,7 +40,7 @@
   {:builds [{:id "screen"
              :source-paths ["src"]
              :stylesheet challenge.styles.core/screen
-             :compiler {:output-to "resources/public/screen.css"
+             :compiler {:output-to "resources/public/css/screen.css"
                         :pretty-print? false}}]}
 
   :aliases

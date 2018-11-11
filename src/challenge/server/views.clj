@@ -5,6 +5,6 @@
   (html5
     [:head
      [:title "Flexiana"]
-     (include-css "/screen.css")]
+     (include-css "/css/screen.css")]
     [:div#app]
     (include-js "/js/out/main.js")))
