@@ -15,24 +15,37 @@
 (defn tval [e]
   (.-value (.-target e)))
 
+(defn lower-alpha? [x]
+  (re-matches #"[a-z]*" x))
+
 (defn main []
 
   (let [inner-state
         (atom {:str1 "rekqodlw"
                :str2 "world"
-               :scrumbled? true})
+               :scrumbled? true
+               :warning nil})
 
         refresh
         (fn []
           (go (let [response
                     (<! (http/get
                           (str (.-href js/window.location) "scramble")
-                          {:with-credentials? false
-                           :query-params {"x" (:str1 @inner-state)
-                                          "y" (:str2 @inner-state)}}))]
-                #_(println response)
+                          {:query-params
+                           {"x" (:str1 @inner-state)
+                            "y" (:str2 @inner-state)}}))]
                 (swap! inner-state assoc
-                       :scrumbled? (:body response)))))]
+                       :scrumbled? (:body response)))))
+
+        set-str-field
+        (fn [k e]
+          (swap! inner-state assoc k (tval e))
+          (if (and (lower-alpha? (:str1 @inner-state))
+                   (lower-alpha? (:str2 @inner-state)))
+            (do (swap! inner-state dissoc :warning)
+                (refresh))
+            (swap! inner-state assoc :warning
+                   "Lower-case alpha numeric chars only!")))]
 
     (fn []
       [:div
@@ -45,19 +58,19 @@
        [:input
         {:type "text"
          :value (:str1 @inner-state)
-         :on-change
-         (fn [e]
-           (swap! inner-state assoc :str1 (tval e))
-           (refresh))}]
+         :on-change #(set-str-field :str1 %)}]
 
        [:input
         {:type "text"
          :value (:str2 @inner-state)
-         :class (if (:scrumbled? @inner-state) "valid" "invalid")
-         :on-change
-         (fn [e]
-           (swap! inner-state assoc :str2 (tval e))
-           (refresh))}]])))
+         :on-change #(set-str-field :str2 %)
+         :class
+         (cond
+           (:warning @inner-state) "warned"
+           (:scrumbled? @inner-state) "valid"
+           :else "invalid")}]
+
+       [:div.warning (:warning @inner-state)]])))
 
 (r/render-component [main]
                     (.getElementById js/document "app"))

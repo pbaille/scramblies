@@ -25,4 +25,8 @@
               :border-radius (px 5)
               :color "grey"}
              [:&.valid {:background-color "#BCED91"}]
-             [:&.invalid {:background-color "#ffa382"}]]])
+             [:&.invalid {:background-color "#ffa382"}]
+             [:&.warned {:background-color "lightgrey"}]]
+            [:.warning
+             {:margin (px 10)
+              :color "#ffa382"}]])
