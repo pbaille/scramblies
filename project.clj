@@ -1,4 +1,4 @@
-(defproject challenge "0.1.0-SNAPSHOT"
+(defproject challenge "0.1.0"
 
   :description "Flexiana clojure challenge"
 
@@ -48,5 +48,10 @@
    ["do"
     "clean"
     ["cljsbuild" "once"]
-    ["garden" "once"]
-    "uberjar"]})
+    ["garden" "once"]]
+
+   "build-all"
+   ["do" "build" "uberjar"]
+
+   "launch"
+   ["ring" "server"]})

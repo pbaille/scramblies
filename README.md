@@ -29,19 +29,29 @@ Please pay attention to tests, code readability and error cases.
 
 **all in one**  
 
-```./build.sh``` and visit ```http://localhost:3000```
-
-**compiling**  
-
-```lein build``` 
-
-**launching**  
-
-```java -jar target/challenge-0.1.0-SNAPSHOT-standalone.jar -p 4321```
+```./build-and-run``` then visit ```http://localhost:3000```
 
 **testing**  
 
 ```lein test```
+
+**compiling js and css**  
+
+```lein build``` 
+
+**compiling js, css and jar**  
+
+```lein build-all``` 
+
+**launching dev server**
+
+```lein launch```
+
+**using jar**  
+
+```java -jar target/challenge-0.1.0-standalone.jar -p 3000```
+
+
 
 
 

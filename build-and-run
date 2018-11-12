@@ -1,0 +1,5 @@
+#!/bin/bash
+
+lein build-all
+
+java -jar target/challenge-0.1.0-standalone.jar -p 3000
