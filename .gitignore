@@ -2,7 +2,7 @@
 /.idea
 /.nrepl-port
 /figwheel_server.log
-/resources
+/resources/public/js/out
 challenge.iml
 workspace.xml
 
